@@ -20,7 +20,7 @@ export class Ui {
         for (let i = 0; i < dataGames.length; i++) {
 
             cartona +=
-                ` <div id="${dataGames[i].id}" class="col-lg-3 ">
+                ` <div  class="col-lg-3 ">
                        <div id="${dataGames[i].id}" class="item">
                           <div id="${dataGames[i].id}"  class="card " style="width: 18rem;">
                                <div class="img"><img id="${dataGames[i].id}" src="${dataGames[i].thumbnail}" class="card-1mg-top w-100 mx-auto p-3" alt="thumbnail"></div>

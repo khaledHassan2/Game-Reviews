@@ -9,8 +9,10 @@ let getData=new Get;
 (async function(){
     await getData.getGames('mmorpg');
     display.displayGames();
+   
     
 })();
+
 
 
 //  -----------------------------
@@ -20,11 +22,7 @@ ul.addEventListener('click',function(e){
     
         (async function(){
             await getData.getGames(e.target.type);
-            
-            display.displayGames();
-        
-    
-    
+             display.displayGames();
         })()
 });
 
@@ -40,23 +38,31 @@ let row=document.querySelector('.row');
         let idCard=e.target.id;
         console.log(idCard);
 
-              if(idCard !=null ){
+            
         
                    (async function(){
-                      await getData.getDetails(e.target.id);
-                      display.displayDetails();
-                   })();
 
-                    rowGames.classList.add('d-none');
-                    nav.classList.add('d-none');
-                    rowDetalis.classList.remove('d-none');
-                }
-                else{
-                    console.log('erroe')
-                }
+                      await getData.getDetails(e.target.id);
+                      await display.displayDetails();
+
+                            let i=document.querySelector('i');
+                            i.addEventListener('click',function(e){
+                                console.log('close')
+                                rowGames.classList.remove('d-none');
+                                nav.classList.remove('d-none');
+                                rowDetalis.classList.add('d-none');
+                            })
+
+
+                   })();
+                   
+
+                   rowGames.classList.add('d-none');
+                   nav.classList.add('d-none');
+                   rowDetalis.classList.remove('d-none');
+                
               
      
 
    });
-
 
