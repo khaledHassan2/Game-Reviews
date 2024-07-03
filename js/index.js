@@ -1,82 +1,62 @@
+"use strict";
 // ----------- import
 import{Ui} from './Ui.js';
 import{Get} from './getdata.js';
 
-// ---------
-export async function displayItem(id){
-        await getData.getDetails(idCard);
-        display.displayDetails();
-   
-    console.log(`welcom ${id}`);
-
-    // let item =document.querySelector('.item').addEventListener('click',function(e){
-    //  rowGames.classList.add('d-none');
-    //  rowDetalis.classList.remove('d-none');
-    
-    // })
-}
-// ---------
-
 let display=new Ui;
 let getData=new Get;
- 
+// ---------
 (async function(){
     await getData.getGames('mmorpg');
-          display.displayGames();
-   
- })();
-
-
-    //  -----------------------------
-
-let MMORPG =document.querySelector('.MMORPG');
-MMORPG.addEventListener('click',function(e){
-    (async function(){
-        await getData.getGames('mmorpg');
-         display.displayGames();
-        
-    })();
+    display.displayGames();
     
-})
+})();
 
-let SHOOTER =document.querySelector('.SHOOTER');
-SHOOTER.addEventListener('click',function(e){
-    (async function(){
-       await getData.getGames('shooter');
-       display.displayGames();
-    })();
+
+//  -----------------------------
+let ul =document.querySelector('ul');
+ul.addEventListener('click',function(e){
+    // console.log( e.target);
+    
+        (async function(){
+            await getData.getGames(e.target.type);
+            
+            display.displayGames();
+        
+    
+    
+        })()
+});
+
+
+
+let row=document.querySelector('.row');
+   row.addEventListener('click',function(e){
+
    
-})
-let PIXSEL =document.querySelector('.PIXSEL');
-PIXSEL.addEventListener('click',function(e){
-    (async function(){
-       await getData.getGames('pixel');
-       display.displayGames();
-    })();
-   
-})
-let SUPERHERO =document.querySelector('.SUPERHERO');
-SUPERHERO.addEventListener('click',function(e){
-    (async function(){
-       await getData.getGames('superhero');
-       display.displayGames();
-    })();
-   
-})
-let PERMADEATH =document.querySelector('.PERMADEATH');
-PERMADEATH.addEventListener('click',function(e){
-    (async function(){
-       await getData.getGames('permadeath');
-       display.displayGames();
-    })();
-   
-})
-let SALING =document.querySelector('.SALING');
-SALING.addEventListener('click',function(e){
-    (async function(){
-       await getData.getGames('sailing');
-       display.displayGames();
-    })();
-   
-})
+        let rowGames =document.querySelector('.rowGames');
+        let rowDetalis =document.querySelector('.rowDetalis');
+        let nav =document.querySelector('nav');
+        let idCard=e.target.id;
+        console.log(idCard);
+
+              if(idCard !=null ){
+        
+                   (async function(){
+                      await getData.getDetails(e.target.id);
+                      display.displayDetails();
+                   })();
+
+                    rowGames.classList.add('d-none');
+                    nav.classList.add('d-none');
+                    rowDetalis.classList.remove('d-none');
+                }
+                else{
+                    console.log('erroe')
+                }
+              
+     
+
+   });
+
 

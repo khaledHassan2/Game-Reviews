@@ -1,6 +1,7 @@
+"use strict";
 
 import{dataGames,detailsData} from './getdata.js'
-import{displayItem} from './index.js'
+// import{displayItem} from './index.js'
 
 
 
@@ -19,20 +20,20 @@ export class Ui {
         for (let i = 0; i < dataGames.length; i++) {
 
             cartona +=
-                ` <div class="col-lg-3 ">
-                       <div onclick="displayItem(${dataGames[i].id})" class="item">
-                          <div  class="card " style="width: 18rem;">
-                               <div><img src="${dataGames[i].thumbnail}" class="card-1mg-top w-100 mx-auto p-3" alt="thumbnail"></div>
-                               <div class="card-body text-center">
-                                   <div class="d-flex justify-content-between ">
-                                       <h5 class="card-title h6">${dataGames[i].title}</h5>
-                                       <h5><span class="badge text-bg-primary">free</span></h5>
+                ` <div id="${dataGames[i].id}" class="col-lg-3 ">
+                       <div id="${dataGames[i].id}" class="item">
+                          <div id="${dataGames[i].id}"  class="card " style="width: 18rem;">
+                               <div class="img"><img id="${dataGames[i].id}" src="${dataGames[i].thumbnail}" class="card-1mg-top w-100 mx-auto p-3" alt="thumbnail"></div>
+                               <div id="${dataGames[i].id}" class="card-body text-center">
+                                   <div id="${dataGames[i].id}" class="d-flex justify-content-between ">
+                                       <h5 id="${dataGames[i].id}" class="card-title h6">${dataGames[i].title}</h5>
+                                       <h5 id="${dataGames[i].id}"><span id="${dataGames[i].id}" class="badge text-bg-primary">free</span></h5>
                                    </div>
-                                   <p class="card-text text-white-50">${dataGames[i].short_description.split(' ').splice(0, 7)}</p>
+                                   <p id="${dataGames[i].id}" class="card-text text-white-50">${dataGames[i].short_description.split(' ').splice(0, 7)}</p>
                               </div>
-                               <div class="card-footer text-body-secondary d-flex justify-content-between">
-                                   <span class="badge text-bg-secondary">${dataGames[i].genre}</span>
-                                   <span class="badge text-bg-secondary">${dataGames[i].platform}</span>
+                               <div id="${dataGames[i].id}" class="card-footer text-body-secondary d-flex justify-content-between">
+                                   <span id="${dataGames[i].id}" class="badge text-bg-secondary">${dataGames[i].genre}</span>
+                                   <span id="${dataGames[i].id}" class="badge text-bg-secondary">${dataGames[i].platform}</span>
                                </div>
                           </div>
                         </div> 

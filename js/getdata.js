@@ -1,3 +1,4 @@
+"use strict";
 export let dataGames;
 export let detailsData;
 
