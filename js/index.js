@@ -1,68 +1,58 @@
 "use strict";
 // ----------- import
+
 import{Ui} from './Ui.js';
 import{Get} from './getdata.js';
 
 let display=new Ui;
 let getData=new Get;
+
+let loginggg=document.querySelector('.loginggg');
 // ---------
 (async function(){
-    await getData.getGames('mmorpg');
-    display.displayGames();
-   
+
+    loginggg.classList.replace('d-none','d-flex');
+
+    // -------------------------- display Home ------
+
     
+    await getData.getGames('mmorpg');
+    await display.displayGames();
+
+    loginggg.classList.replace('d-flex','d-none');
+    
+    // -------------------------- Display Deferant Catogery ------
+    
+    let a =document.querySelectorAll('a');
+    for (let i = 0; i < a.length; i++) {
+        a[i].addEventListener('click',function(e){
+            for (let y = 0; y < a.length; y++) {
+                a[y].classList.remove('active')
+                
+            }
+            a[i].classList.add('active')
+            loginggg.classList.replace('d-none','d-flex');
+           
+            (async function(){
+                await getData.getGames(a[i].type);
+                await display.displayGames();
+                loginggg.classList.replace('d-flex','d-none');
+                display.displayCard();
+                
+            })();
+            
+        })
+        
+    }
+
+    //------------------ Display Card Details ----------------
+    
+    display.displayCard();
 })();
 
 
 
-//  -----------------------------
-let ul =document.querySelector('ul');
-ul.addEventListener('click',function(e){
-    // console.log( e.target);
-    
-        (async function(){
-            await getData.getGames(e.target.type);
-             display.displayGames();
-        })()
-});
 
 
 
-let row=document.querySelector('.row');
-   row.addEventListener('click',function(e){
-
-   
-        let rowGames =document.querySelector('.rowGames');
-        let rowDetalis =document.querySelector('.rowDetalis');
-        let nav =document.querySelector('nav');
-        let idCard=e.target.id;
-        console.log(idCard);
-
-            
-        
-                   (async function(){
-
-                      await getData.getDetails(e.target.id);
-                      await display.displayDetails();
-
-                            let i=document.querySelector('i');
-                            i.addEventListener('click',function(e){
-                                console.log('close')
-                                rowGames.classList.remove('d-none');
-                                nav.classList.remove('d-none');
-                                rowDetalis.classList.add('d-none');
-                            })
-
-
-                   })();
-                   
-
-                   rowGames.classList.add('d-none');
-                   nav.classList.add('d-none');
-                   rowDetalis.classList.remove('d-none');
-                
-              
-     
-
-   });
 

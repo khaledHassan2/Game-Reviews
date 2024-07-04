@@ -2,11 +2,10 @@
 export let dataGames;
 export let detailsData;
 
-// get games --------------------
 export class Get {
-    // constructor(link) {
-    //     this.link = link;
-    // }
+    
+        // get games --------------------
+    
     async getGames(link) {
         const options = {
             method: 'GET',
@@ -21,6 +20,9 @@ export class Get {
 
 
     }
+
+        // get Deatails --------------------
+
     async getDetails(idCard) {
 
         const options = {
@@ -33,12 +35,8 @@ export class Get {
 
         const response = await fetch(`https://free-to-play-games-database.p.rapidapi.com/api/game?id=${idCard}`, options);
         detailsData = await response.json();
-        // console.log(detailsData);
+        
     }
 }
-
-
-
-// get details --------------------
 
 

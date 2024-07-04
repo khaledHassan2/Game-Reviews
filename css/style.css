@@ -3,7 +3,25 @@
     width: 270px !important;
     height: 350px !important;
 }
+.bg-body-tertiary {
+
+  background-color: #DC3545 !important;
+  
+}
+.navbar-nav .nav-link.active{
+  color: blue;
+  font-size: large;
+}
+
 /*  ---------------------- Loding ------------------------- */
+
+.loginggg{
+  position: relative;
+  z-index: 99999;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100vh;
+}
+
 .loader {
     color: #FFF;
     position: relative;
