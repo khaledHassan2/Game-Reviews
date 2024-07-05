@@ -6,9 +6,8 @@ import{Get} from './getdata.js';
 
 let display=new Ui;
 let getData=new Get;
-
 let loginggg=document.querySelector('.loginggg');
-// ---------
+
 (async function(){
 
     loginggg.classList.replace('d-none','d-flex');

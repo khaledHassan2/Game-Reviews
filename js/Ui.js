@@ -1,11 +1,10 @@
 "use strict";
 
 import{dataGames,detailsData} from './getdata.js';
+
 import{Get} from './getdata.js';
-
-
-
 let getData=new Get;
+
 export class Ui {
     
         // --------------------------------- Display Games
@@ -23,7 +22,7 @@ export class Ui {
                 <div class="img"><img  src="${dataGames[i].thumbnail}" class="card-1mg-top w-100 mx-auto p-3" alt="thumbnail"></div>
                 <div  class="card-body text-center">
                     <div  class="d-flex justify-content-between ">
-                        <h5  class="card-title h6">${dataGames[i].title}</h5>
+                        <h2  class="card-title h6">${dataGames[i].title}</h2>
                         <h5 ><span  class="badge text-bg-danger">free</span></h5>
                     </div>
                     <p  class="card-text text-white-50">${dataGames[i].short_description.split(' ').splice(0, 7)}</p>

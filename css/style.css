@@ -1,13 +1,37 @@
+body{
+  font-family: "Recursive", sans-serif;
+}
+h2,.navbar-brand{
+  font-family: "Anton SC", sans-serif;
+}
 .card {
-
-    /* width: 270px !important; */
+    
     min-height: 350px !important;
+    filter: grayscale(.6);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .card:hover {
+    transform: scale(1.05);
+    filter: grayscale(0);
+  }
+  i{
+    transition: all 0.3s ease;
+    cursor: pointer;
+    filter: grayscale(.3);
+    
+  }
+  i:hover{
+    filter: grayscale(0);
+  transform: scale(1.5);
+
 }
 .bg-body-tertiary {
 
   background-color: rgb(220, 53, 69) !important;
   background-image:linear-gradient(#FF6969,#C80036);
-  /* border-radius: 5%; */
+ 
   
 }
 .navbar-nav .nav-link.active{
